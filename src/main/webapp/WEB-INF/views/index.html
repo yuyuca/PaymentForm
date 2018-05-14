@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Amount Started: Handling AmountForm Submission</title>
+</head>
+<body>
+<h1>Payment Form</h1>
+	<form id="form" th:action="@{/result}" th:object="${paymentForm}" method="post">
+    <div class="msr_text_05">
+	    <label><span style="color:red;">*</span>amount</label>
+	    <input type="text" th:field="*{amount}" />
+  	</div>
+    <span style="color:red; font-size:8pt">
+    	<em th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">リクエストの送信に失敗しました</em>
+	</span>
+	<div style="text-align: right;width: 460px;">
+		<a id="submit_button" href="#" class="square_btn">BUTTON</a>
+	</div>
+</form>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script>
+$(document).on("click", "#submit_button", function() {
+	$("#form").submit();
+})
+
+</script>
+</body>
+<style>
+.square_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+.square_btn:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+/*--------------------------------------
+テキスト
+---------------------------------------*/
+.msr_text_05 {
+  padding-bottom: 20px;
+  width: 460px;
+}
+.msr_text_05 label {
+  display: block;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.msr_text_05 input[type=text] {
+  background: #fff;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 14px;
+  padding: 10px;
+  height: 40px;
+  width: 460px;
+}
+</style>
+</html>
