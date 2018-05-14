@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Amount Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+	<p th:text="${msg}"/>
+	<p th:text="リクエストの送信に成功しました"/>
+    <p th:text="'amount: ' + ${paymentForm.amount}" />
+    <a href="/index">Submit another amount</a>
+</body>
+</html>
